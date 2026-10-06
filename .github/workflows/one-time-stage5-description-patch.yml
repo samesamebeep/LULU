@@ -1,0 +1,53 @@
+name: One-time stage 5 description patch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/one-time-stage5-description-patch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch stage 5 descriptions
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          game = Path('dist/秦璐重置版/脚本/游戏逻辑/index.js')
+          status = Path('dist/秦璐重置版/界面/状态栏/index.html')
+
+          g = game.read_text(encoding='utf-8')
+          s = status.read_text(encoding='utf-8')
+
+          exact = '，但关键私密区域仍保持遮挡'
+          variant = '，但关键私密区域保持遮挡'
+
+          if g.count(exact) != 1:
+              raise SystemExit(f'game exact count unexpected: {g.count(exact)}')
+          if g.count(variant) != 1:
+              raise SystemExit(f'game variant count unexpected: {g.count(variant)}')
+          if s.count(exact) != 0:
+              raise SystemExit(f'status exact count unexpected: {s.count(exact)}')
+          if s.count(variant) != 1:
+              raise SystemExit(f'status variant count unexpected: {s.count(variant)}')
+
+          game.write_text(g.replace(exact, '').replace(variant, ''), encoding='utf-8')
+          status.write_text(s.replace(variant, ''), encoding='utf-8')
+          PY
+      - name: Commit patch and remove this one-time workflow
+        shell: bash
+        run: |
+          git config user.name 'chatgpt-patch'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f .github/workflows/one-time-stage5-description-patch.yml
+          git add 'dist/秦璐重置版/脚本/游戏逻辑/index.js' 'dist/秦璐重置版/界面/状态栏/index.html' .github/workflows/one-time-stage5-description-patch.yml
+          git commit -m 'Remove stage 5 privacy-area遮挡 restriction'
+          git push origin HEAD:main
