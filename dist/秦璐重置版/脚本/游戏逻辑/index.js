@@ -1,6 +1,6 @@
-/* LULU Final v9 | tested stable build | base snapshot 855a2f2ad250ad5b13482e1b3e9c2781a96e74a6 */
+
 (async function(){
-  const BUILD = 'lulu-v9-ending-state-fix-20261008';
+  const BUILD = 'lulu-final-selfcontained-logic-20261008';
   const G = globalThis;
 
   try{
@@ -80,7 +80,7 @@
 
       const lastFloor=Number(sys._秘密统计上次处理楼层 ?? -1);
       // 只要临时事件仍然存在，就视为“尚未完整结算”。
-      // 正常 855 结算会在同一次处理里清空数组；因此这里不再仅凭楼层标记吞掉事件，
+      // 正常核心结算会在同一次处理里清空数组；因此这里不再仅凭楼层标记吞掉事件，
       // 避免出现“标记已写、计数没加”的半结算状态。
       for(const who of ['秦璐','秦曼华']){
         for(const actor of ['主角','阿伟']){
@@ -117,7 +117,7 @@
       }
 
       sys._秘密统计上次处理楼层=floor;
-      console.info('[秦璐重置版·v9] 秘密事件兜底结算完成 @'+floor);
+      console.info('[秦璐重置版·FINAL] 秘密事件兜底结算完成 @'+floor);
       return true;
     }
 
@@ -165,7 +165,7 @@
           if(shouldUpgrade){
             f.暴露程度=inferred;
             changed=true;
-            console.info(`[秦璐重置版·v9] ${key} 暴露程度自检 ${cur} → ${inferred}`);
+            console.info(`[秦璐重置版·FINAL] ${key} 暴露程度自检 ${cur} → ${inferred}`);
           }
         }
 
@@ -202,18 +202,18 @@
         state.repairing=true;
         try{
           await mvu.replaceMvuData(data,{type:'message',message_id:-1});
-          console.info('[秦璐重置版·v9] 结尾变量自检写回：'+reason);
+          console.info('[秦璐重置版·FINAL] 结尾变量自检写回：'+reason);
         }finally{
           state.repairing=false;
         }
       }catch(err){
         state.repairing=false;
-        console.warn('[秦璐重置版·v9] 结尾变量自检失败',err);
+        console.warn('[秦璐重置版·FINAL] 结尾变量自检失败',err);
       }
     }
 
     /* 标记所有来自 UI 的 Mvu.replaceMvuData 写入。
-       855 状态栏的购买、装备、体改、消耗品、特权、特别活动、
+       状态栏的购买、装备、体改、消耗品、特权、特别活动、
        念头植入、晋阶、在场锁定等交互都走这里。 */
     try{
       const mvu = G.Mvu;
@@ -241,15 +241,15 @@
         guardedReplace.__luluV7Original = originalReplace;
         mvu.replaceMvuData = guardedReplace;
 
-        console.info('[秦璐重置版·v9] 已安装 UI 写入保护');
+        console.info('[秦璐重置版·FINAL] 已安装 UI 写入保护');
       }
     }catch(err){
-      console.warn('[秦璐重置版·v9] Mvu.replaceMvuData 包装失败，将继续加载主逻辑', err);
+      console.warn('[秦璐重置版·FINAL] Mvu.replaceMvuData 包装失败，将继续加载主逻辑', err);
     }
 
-    /* 855 主逻辑的非生成 VARIABLE_UPDATE_ENDED 分支会把
+    /* 核心逻辑的非生成 VARIABLE_UPDATE_ENDED 分支会把
        系统.货币 / 系统.道具状态 等恢复到旧快照。
-       这里仅包住 855 自己注册的两个回调，用外部 generationActive
+       这里仅包住核心逻辑注册的两个回调，用外部 generationActive
        区分“AI 生成”与“UI 手动操作”。 */
     const originalEventOn = G.eventOn;
     const promptEvent = G.tavern_events?.CHAT_COMPLETION_PROMPT_READY;
@@ -337,14 +337,14 @@
               (!state.generationActive && Date.now() < (state.manualUntil || 0));
 
             /* 只拦截真正由 UI 的 replaceMvuData 引起的刷新。
-               v8 的 bug 就在这里：它还要求 generationActive=true 才执行 855 原结算，
+               历史 bug 就在这里：曾要求 generationActive=true 才执行核心结算，
                一旦没捕获到 PROMPT_READY，秘密统计/阿伟依存/疑心/作息等整条结尾结算都会被跳过。 */
             if(manualWrite){
-              console.info('[秦璐重置版·v9] UI 变量写入已保留，跳过旧快照回滚');
+              console.info('[秦璐重置版·FINAL] UI 变量写入已保留，跳过旧快照回滚');
               return;
             }
 
-            /* 所有非 UI 的 VARIABLE_UPDATE_ENDED 都交回 855 原逻辑。
+            /* 所有非 UI 的 VARIABLE_UPDATE_ENDED 都交回核心逻辑。
                generationActive 只用于避免“刚买完立刻发消息”的短暂时间窗误判，不再作为结算闸门。 */
             try{
               return callback.apply(this, args);
@@ -377,7 +377,7 @@
       setTimeout(restoreEventOn, 15000);
     }
 
-    await import('https://testingcf.jsdelivr.net/gh/samesamebeep/LULU@855a2f2ad250ad5b13482e1b3e9c2781a96e74a6/dist/秦璐重置版/脚本/游戏逻辑/index.js?v=20261008-v9');
+    await import(new URL('./core.js', import.meta.url).href);
 
     // 独立兜底：即使未来远端监听器改了注册顺序，秘密统计与仪容一致性仍会自检。
     try{
@@ -387,17 +387,17 @@
         });
       }
     }catch(err){
-      console.warn('[秦璐重置版·v9] 自检监听注册失败',err);
+      console.warn('[秦璐重置版·FINAL] 自检监听注册失败',err);
     }
 
     setTimeout(()=>runPostRepair('initial-load'),500);
-    console.info('[秦璐重置版·v9] 游戏逻辑加载完成');
+    console.info('[秦璐重置版·FINAL] 游戏逻辑加载完成');
   }catch(err){
-    console.error('[秦璐重置版·v9] 游戏逻辑启动失败', err);
+    console.error('[秦璐重置版·FINAL] 游戏逻辑启动失败', err);
     const host = window.parent ?? window;
     host.toastr?.error?.(
       '游戏逻辑加载失败：' + (err?.message ?? String(err)) + '\n请 F12 查看控制台',
-      '秦璐重置版 v9',
+      '秦璐重置版 FINAL',
       {timeOut:0, extendedTimeOut:0}
     );
   }
