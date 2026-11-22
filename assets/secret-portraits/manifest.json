@@ -1,13 +1,25 @@
 {
-  "version": 1,
+  "version": 2,
   "roles": {
     "qin-lu": {
       "name": "秦璐",
-      "stages": 5
+      "stages": 5,
+      "rewards": [
+        {
+          "id": "secret-reward",
+          "unlock_stage": 5
+        }
+      ]
     },
     "qin-manhua": {
       "name": "秦曼华",
-      "stages": 5
+      "stages": 5,
+      "rewards": [
+        {
+          "id": "secret-reward",
+          "unlock_stage": 5
+        }
+      ]
     },
     "lin-xixi": {
       "name": "林西西",
@@ -135,6 +147,30 @@
       "width": 768,
       "height": 1280,
       "sha256": "3ce999e3537720ac4fae51864185f4ac9786aa6b9c6271cca4d90cf865167da2"
+    },
+    {
+      "role": "qin-lu",
+      "name": "秦璐",
+      "kind": "reward",
+      "unlock_stage": 5,
+      "asset_key": "qin-lu-reward",
+      "path": "assets/secret-portraits/qin-lu/secret-reward.jpg",
+      "bytes": 471612,
+      "width": 1152,
+      "height": 1728,
+      "sha256": "436ec3e8335517937f549641e4df4d2700f4fdd1c2dce1f0eb42f5ed286cea1f"
+    },
+    {
+      "role": "qin-manhua",
+      "name": "秦曼华",
+      "kind": "reward",
+      "unlock_stage": 5,
+      "asset_key": "qin-manhua-reward",
+      "path": "assets/secret-portraits/qin-manhua/secret-reward.jpg",
+      "bytes": 414849,
+      "width": 1152,
+      "height": 1728,
+      "sha256": "6d4ba1b0d514819c83c7061c6e2588f36a64f79987d9c0367d67a83f252867e8"
     }
   ]
 }
