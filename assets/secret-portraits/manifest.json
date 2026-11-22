@@ -1,0 +1,140 @@
+{
+  "version": 1,
+  "roles": {
+    "qin-lu": {
+      "name": "秦璐",
+      "stages": 5
+    },
+    "qin-manhua": {
+      "name": "秦曼华",
+      "stages": 5
+    },
+    "lin-xixi": {
+      "name": "林西西",
+      "stages": 1
+    }
+  },
+  "images": [
+    {
+      "role": "qin-lu",
+      "name": "秦璐",
+      "stage": 1,
+      "asset_key": "qin-lu",
+      "path": "assets/secret-portraits/qin-lu/stage-1.png",
+      "bytes": 1546716,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "c90724444d959ec3a5583e6d89f51a346bf03214a869a1e21f1259edb01b168a"
+    },
+    {
+      "role": "qin-lu",
+      "name": "秦璐",
+      "stage": 2,
+      "asset_key": "qin-lu-stage-2",
+      "path": "assets/secret-portraits/qin-lu/stage-2.png",
+      "bytes": 1750492,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "3ef1e54ed5ea6b9e8161d71c9e66e733d7b795931b81f3f29c8d1daeac38e527"
+    },
+    {
+      "role": "qin-lu",
+      "name": "秦璐",
+      "stage": 3,
+      "asset_key": "qin-lu-stage-3",
+      "path": "assets/secret-portraits/qin-lu/stage-3.png",
+      "bytes": 1902723,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ffd193c3285d29ba9a50b53abad641584e60ca7ef3ab36b19d31b6022143238a"
+    },
+    {
+      "role": "qin-lu",
+      "name": "秦璐",
+      "stage": 4,
+      "asset_key": "qin-lu-stage-4",
+      "path": "assets/secret-portraits/qin-lu/stage-4.png",
+      "bytes": 2032265,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "b15daf275a802e67b36ab02508cad9ba68b8f6f7f490dba8c5b5ea0918533842"
+    },
+    {
+      "role": "qin-lu",
+      "name": "秦璐",
+      "stage": 5,
+      "asset_key": "qin-lu-stage-5",
+      "path": "assets/secret-portraits/qin-lu/stage-5.png",
+      "bytes": 1172097,
+      "width": 1152,
+      "height": 1728,
+      "sha256": "61efbefe780e8abd2b07de03d87194a2ae9b6426fb86cad66d8fc6964aee0bff"
+    },
+    {
+      "role": "qin-manhua",
+      "name": "秦曼华",
+      "stage": 1,
+      "asset_key": "qin-manhua",
+      "path": "assets/secret-portraits/qin-manhua/stage-1.png",
+      "bytes": 1653922,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "9c4858fd7d08f2104694153b148a4754247c866e0aec792fc407e347b26d5da6"
+    },
+    {
+      "role": "qin-manhua",
+      "name": "秦曼华",
+      "stage": 2,
+      "asset_key": "qin-manhua-stage-2",
+      "path": "assets/secret-portraits/qin-manhua/stage-2.png",
+      "bytes": 1656647,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "b39150eaf4da515d26532c48922b397b68a76d6267d5d9cb523529f3a1788225"
+    },
+    {
+      "role": "qin-manhua",
+      "name": "秦曼华",
+      "stage": 3,
+      "asset_key": "qin-manhua-stage-3",
+      "path": "assets/secret-portraits/qin-manhua/stage-3.png",
+      "bytes": 1756920,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "b6981f16dfbf04e679c7d077de02eca61729c48a2fb2c6e019c12f376a23e28f"
+    },
+    {
+      "role": "qin-manhua",
+      "name": "秦曼华",
+      "stage": 4,
+      "asset_key": "qin-manhua-stage-4",
+      "path": "assets/secret-portraits/qin-manhua/stage-4.png",
+      "bytes": 1743738,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "77add172540e84b97113022948bd51ebc6dc7a97e8594b8c6d28fb56bff5ebae"
+    },
+    {
+      "role": "qin-manhua",
+      "name": "秦曼华",
+      "stage": 5,
+      "asset_key": "qin-manhua-stage-5",
+      "path": "assets/secret-portraits/qin-manhua/stage-5.png",
+      "bytes": 1969778,
+      "width": 1024,
+      "height": 1536,
+      "sha256": "e1e2669ec4b91205398364eb40b0158c1d3a00fa036c519d02232534ddc9d1b2"
+    },
+    {
+      "role": "lin-xixi",
+      "name": "林西西",
+      "stage": 1,
+      "asset_key": "lin-xixi",
+      "path": "assets/secret-portraits/lin-xixi/stage-1.png",
+      "bytes": 1242101,
+      "width": 768,
+      "height": 1280,
+      "sha256": "3ce999e3537720ac4fae51864185f4ac9786aa6b9c6271cca4d90cf865167da2"
+    }
+  ]
+}
