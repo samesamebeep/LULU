@@ -1,29 +1,17 @@
 {
-  "version": 2,
+  "version": 3,
   "roles": {
     "qin-lu": {
       "name": "秦璐",
-      "stages": 5,
-      "rewards": [
-        {
-          "id": "secret-reward",
-          "unlock_stage": 5
-        }
-      ]
+      "stages": 5
     },
     "qin-manhua": {
       "name": "秦曼华",
-      "stages": 5,
-      "rewards": [
-        {
-          "id": "secret-reward",
-          "unlock_stage": 5
-        }
-      ]
+      "stages": 5
     },
     "lin-xixi": {
-      "name": "林西西",
-      "stages": 1
+      "name": "林西",
+      "stages": 5
     }
   },
   "images": [
@@ -139,38 +127,58 @@
     },
     {
       "role": "lin-xixi",
-      "name": "林西西",
+      "name": "林西",
       "stage": 1,
       "asset_key": "lin-xixi",
       "path": "assets/secret-portraits/lin-xixi/stage-1.png",
-      "bytes": 1242101,
-      "width": 768,
-      "height": 1280,
-      "sha256": "3ce999e3537720ac4fae51864185f4ac9786aa6b9c6271cca4d90cf865167da2"
+      "bytes": 1140959,
+      "width": 1264,
+      "height": 1568,
+      "sha256": "66690bd8e5b24dbda7e36e10ea72359380c360567ee98e64653d7629a36f41eb"
     },
     {
-      "role": "qin-lu",
-      "name": "秦璐",
-      "kind": "reward",
-      "unlock_stage": 5,
-      "asset_key": "qin-lu-reward",
-      "path": "assets/secret-portraits/qin-lu/secret-reward.jpg",
-      "bytes": 471612,
-      "width": 1152,
-      "height": 1728,
-      "sha256": "436ec3e8335517937f549641e4df4d2700f4fdd1c2dce1f0eb42f5ed286cea1f"
+      "role": "lin-xixi",
+      "name": "林西",
+      "stage": 2,
+      "asset_key": "lin-xixi-stage-2",
+      "path": "assets/secret-portraits/lin-xixi/stage-2.png",
+      "bytes": 1265837,
+      "width": 1264,
+      "height": 1568,
+      "sha256": "dca0e1d9efbc79c38a3cc4bf1ef56ee5b33978a3ed4fd1827b453996ed4b75fd"
     },
     {
-      "role": "qin-manhua",
-      "name": "秦曼华",
-      "kind": "reward",
-      "unlock_stage": 5,
-      "asset_key": "qin-manhua-reward",
-      "path": "assets/secret-portraits/qin-manhua/secret-reward.jpg",
-      "bytes": 414849,
-      "width": 1152,
-      "height": 1728,
-      "sha256": "6d4ba1b0d514819c83c7061c6e2588f36a64f79987d9c0367d67a83f252867e8"
+      "role": "lin-xixi",
+      "name": "林西",
+      "stage": 3,
+      "asset_key": "lin-xixi-stage-3",
+      "path": "assets/secret-portraits/lin-xixi/stage-3.png",
+      "bytes": 1316461,
+      "width": 1264,
+      "height": 1568,
+      "sha256": "f86dba77bfa9df5ed70049fb329115e82c01cdd0e22cdd0694c497c80ad2b7dd"
+    },
+    {
+      "role": "lin-xixi",
+      "name": "林西",
+      "stage": 4,
+      "asset_key": "lin-xixi-stage-4",
+      "path": "assets/secret-portraits/lin-xixi/stage-4.png",
+      "bytes": 1185709,
+      "width": 1264,
+      "height": 1568,
+      "sha256": "4f6b19a2869bf641788fb7fb7dfa19c7b626168d67ed93665a4475ef94bbb11c"
+    },
+    {
+      "role": "lin-xixi",
+      "name": "林西",
+      "stage": 5,
+      "asset_key": "lin-xixi-stage-5",
+      "path": "assets/secret-portraits/lin-xixi/stage-5.png",
+      "bytes": 877414,
+      "width": 1264,
+      "height": 1568,
+      "sha256": "3c13d0f8866d8ff6e11d93f4cb0248f174cc25c0be008b3c9f9049bfb6d1c6b9"
     }
   ]
 }
